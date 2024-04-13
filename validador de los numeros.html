@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Números</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Validador de Números</h1>
+
+    <form id="formularioValidador">
+        <label for="numero">Entre el número 1 y 40:</label>
+        <input type="number" id="numero" min="1" max="40" required>
+        <label for="numeroIntroducido">Introduce el número:</label>
+        <input type="text" id="numeroIntroducido" pattern="[0-9]{4}" required>
+        <button type="submit">Validar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script src="validador.js"></script>
+</body>
+</html>

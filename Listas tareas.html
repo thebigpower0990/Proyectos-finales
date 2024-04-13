@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h2>Lista de Tareas</h2>
+    
+    <input type="text" id="taskInput" placeholder="Agregar nueva tarea">
+    <button onclick="agregarTarea()">Agregar</button>
+
+    <ul id="taskList">
+    </ul>
+
+    <script>
+        
+        function agregarTarea() {
+            const taskInput = document.getElementById("taskInput");
+            const taskText = taskInput.value.trim();
+            if (taskText !== "") {
+                const taskList = document.getElementById("taskList");
+                const li = document.createElement("li");
+                li.textContent = taskText;
+                li.setAttribute("onclick", "completarTarea(this)");
+                taskList.appendChild(li);
+                taskInput.value = "";
+            }
+        }
+
+     
+        function eliminarTarea(li) {
+            li.parentNode.removeChild(li);
+        }
+
+        
+        function completarTarea(li) {
+            li.style.textDecoration = "line-through";
+            li.setAttribute("onclick", "desmarcarTarea(this)");
+        }
+
+        function desmarcarTarea(li) {
+            li.style.textDecoration = "none";
+            li.setAttribute("onclick", "completarTarea(this)");
+        }
+    </script>
+</body>
+</html>
